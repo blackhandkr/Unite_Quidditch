@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>포켓몬 유나이트 퀴디치 점수 계산기 v1.2.1</title>
+        <!-- link rel="stylesheet" type="text/css" href="" -->
+        <script></script>
+    </head>
+
+    <body>
+    <form>
+        <!-- 상단 영역 -->
+        <div id="calcHeader">
+            <div id="versionInfo">
+                <p>포켓몬 유나이트 퀴디치 v1.2 by 카이사르</p>
+                <p>계산기 v1.2.1 - 20210108</p>
+            </div>
+            <div id="inputArea">
+                <table id="inputTable1">
+                    <colgroup>
+                        <col class="cellStyle1">
+                        <col class="cellStyle2">
+                        <col class="cellStyle1">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td><input type="number" id="T1baseScore" min="0"></td>
+                            <td><p>점수 합계</p></td>
+                            <td><input type="number" id="T2baseScore" min="0"><</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="T1Gold"></td>
+                            <td><p>백솜모카 Kill</p></td>
+                            <td><input type="checkbox" id="T2Gold"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="resetArea">
+                <input type="reset" id="resetBtn" onclick="resetFnc()">
+            </div>
+        </div>
+        <!-- 중단 영역 -->
+        <div id="calcBody">
+            <div id="inputArea2">
+                <table id=inputTable2>
+                    <colgroup>
+                        <col class="cellStyle3">
+                        <col class="cellStyle3">
+                        <col class="cellStyle4">
+                        <col class="cellStyle4">
+                        <col class="cellStyle5">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th><p>수색꾼</p></th>
+                            <th><p>몰이꾼</p></th>
+                            <th><p>개인득점</p></th>
+                            <th><p>킬</p></th>
+                            <th><p>보정</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" id="T1P1Spd" name="T1Speedup" value="1"></td>
+                            <td><input type="radio" id="T1P1Plus" name="T1Pluspower" value="1"></td>
+                            <td><input type="number" id="T1P1Score" min="0"></td>
+                            <td><input type="number" id="T1P1Kill" min="0"></td>
+                            <td><p id="T1P1Adjust"></p></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" id="T1P2Spd" name="T1Speedup" value="2"></td>
+                            <td><input type="radio" id="T1P2Plus" name="T1Pluspower" value="2"></td>
+                            <td><input type="number" id="T1P2Score" min="0"></td>
+                            <td><input type="number" id="T1P2Kill" min="0"></td>
+                            <td><p id="T1P2Adjust"></p></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" id="T1P3Spd" name="T1Speedup" value="3"></td>
+                            <td><input type="radio" id="T1P3Plus" name="T1Pluspower" value="3"></td>
+                            <td><input type="number" id="T1P3Score" min="0"></td>
+                            <td><input type="number" id="T1P3Kill" min="0"></td>
+                            <td><p id="T1P3Adjust"></p></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" id="T1P4Spd" name="T1Speedup" value="4"></td>
+                            <td><input type="radio" id="T1P4Plus" name="T1Pluspower" value="4"></td>
+                            <td><input type="number" id="T1P4Score" min="0"></td>
+                            <td><input type="number" id="T1P4Kill" min="0"></td>
+                            <td><p id="T1P4Adjust"></p></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" id="T1P5Spd" name="T1Speedup" value="5"></td>
+                            <td><input type="radio" id="T1P5Plus" name="T1Pluspower" value="5"></td>
+                            <td><input type="number" id="T1P5Score" min="0"></td>
+                            <td><input type="number" id="T1P5Kill" min="0"></td>
+                            <td><p id="T1P5Adjust"></p></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="midSpacing"></div>
+            <div id="inputArea3">
+                <table id=inputTable2>
+                    <colgroup>
+                        <col class="cellStyle5">
+                        <col class="cellStyle4">
+                        <col class="cellStyle4">
+                        <col class="cellStyle3">
+                        <col class="cellStyle3">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th><p>보정</p></th>
+                            <th><p>킬</p></th>
+                            <th><p>개인득점</p></th>
+                            <th><p>몰이꾼</p></th>
+                            <th><p>수색꾼</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><p id="T2P1Adjust"></p></td>
+                            <td><input type="number" id="T2P1Kill" min="0"></td>
+                            <td><input type="number" id="T2P1Score" min="0"></td>
+                            <td><input type="radio" id="T2P1Plus" name="T2Pluspower" value="1"></td>
+                            <td><input type="radio" id="T2P1Spd" name="T2Speedup" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td><p id="T2P2Adjust"></p></td>
+                            <td><input type="number" id="T2P2Kill" min="0"></td>
+                            <td><input type="number" id="T2P2Score" min="0"></td>
+                            <td><input type="radio" id="T2P2Plus" name="T2Pluspower" value="2"></td>
+                            <td><input type="radio" id="T2P2Spd" name="T2Speedup" value="2"></td>
+                        </tr>
+                        <tr>
+                            <td><p id="T2P3Adjust"></p></td>
+                            <td><input type="number" id="T2P3Kill" min="0"></td>
+                            <td><input type="number" id="T2P3Score" min="0"></td>
+                            <td><input type="radio" id="T2P3Plus" name="T2Pluspower" value="3"></td>
+                            <td><input type="radio" id="T2P3Spd" name="T2Speedup" value="3"></td>
+                        </tr>
+                        <tr>
+                            <td><p id="T2P4Adjust"></p></td>
+                            <td><input type="number" id="T2P4Kill" min="0"></td>
+                            <td><input type="number" id="T2P4Score" min="0"></td>
+                            <td><input type="radio" id="T2P4Plus" name="T2Pluspower" value="4"></td>
+                            <td><input type="radio" id="T2P4Spd" name="T2Speedup" value="4"></td>
+                        </tr>
+                        <tr>
+                            <td><p id="T2P5Adjust"></p></td>
+                            <td><input type="number" id="T2P5Kill" min="0"></td>
+                            <td><input type="number" id="T2P5Score" min="0"></td>
+                            <td><input type="radio" id="T2P5Plus" name="T2Pluspower" value="5"></td>
+                            <td><input type="radio" id="T2P5Spd" name="T2Speedup" value="5"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 하단 영역 -->
+        <div id="calcFooter">
+            <div id="submitArea">
+                <input type="button" id="submitBtn" onclick="submitFnc()" value="계산하기">
+            </div>
+            <div id="resultArea">
+                <table id="resultTable">
+                    <colgroup>
+                        <col class="cellStyle6">
+                        <col class="cellStyle7">
+                        <col class="cellStyle6">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th id="T1Win"></th>
+                            <th></th>
+                            <th id="T2win"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="T1Final"><p id="T1FinalScore"></p></td>
+                            <td><p>최종 스코어</p></td>
+                            <td id="T2Final"><p id="T2FinalScore"></p></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="authorInfo">
+                <p>엑셀 제작 : 블랙핸드</p>
+            </div>
+        </div>
+    </form>
+    </body>
+</html>

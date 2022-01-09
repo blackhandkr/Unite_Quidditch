@@ -1,1 +1,20 @@
 
+div {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+table {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;   
+}
+
+.cellStyle1 {}
+.cellStyle2 {}
+.cellStyle3 {}
+.cellStyle4 {}
+.cellStyle5 {}
+.cellStyle6 {}
+.cellStyle7 {}

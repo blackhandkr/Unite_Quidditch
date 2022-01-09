@@ -57,49 +57,51 @@
                             <th><p>몰이꾼</p></th>
                             <th><p>개인득점</p></th>
                             <th><p>킬</p></th>
-                            <th><p>보정</p></th>
+                            <th><p>보정 결과</p></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="radio" id="T1P1Spd" name="T1Speedup" value="1"></td>
-                            <td><input type="radio" id="T1P1Plus" name="T1Pluspower" value="1"></td>
-                            <td><input type="number" id="T1P1Score" min="0"></td>
-                            <td><input type="number" id="T1P1Kill" min="0"></td>
-                            <td><p id="T1P1Adjust"></p></td>
+                            <td><input type="radio" id="P1Spd" name="T1Speedup" value="1" checked="checked"></td>
+                            <td><input type="radio" id="P1Plus" name="T1Pluspower" value="1"></td>
+                            <td><input type="number" id="P1Score" min="0"></td>
+                            <td><input type="number" id="P1Kill" min="0"></td>
+                            <td><p id="P1Adjust"></p></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" id="T1P2Spd" name="T1Speedup" value="2"></td>
-                            <td><input type="radio" id="T1P2Plus" name="T1Pluspower" value="2"></td>
-                            <td><input type="number" id="T1P2Score" min="0"></td>
-                            <td><input type="number" id="T1P2Kill" min="0"></td>
-                            <td><p id="T1P2Adjust"></p></td>
+                            <td><input type="radio" id="P2Spd" name="T1Speedup" value="2"></td>
+                            <td><input type="radio" id="P2Plus" name="T1Pluspower" value="2" checked="checked"></td>
+                            <td><input type="number" id="P2Score" min="0"></td>
+                            <td><input type="number" id="P2Kill" min="0"></td>
+                            <td><p id="P2Adjust"></p></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" id="T1P3Spd" name="T1Speedup" value="3"></td>
-                            <td><input type="radio" id="T1P3Plus" name="T1Pluspower" value="3"></td>
-                            <td><input type="number" id="T1P3Score" min="0"></td>
-                            <td><input type="number" id="T1P3Kill" min="0"></td>
-                            <td><p id="T1P3Adjust"></p></td>
+                            <td><input type="radio" id="P3Spd" name="T1Speedup" value="3"></td>
+                            <td><input type="radio" id="P3Plus" name="T1Pluspower" value="3"></td>
+                            <td><input type="number" id="P3Score" min="0"></td>
+                            <td><input type="number" id="P3Kill" min="0"></td>
+                            <td><p id="P3Adjust"></p></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" id="T1P4Spd" name="T1Speedup" value="4"></td>
-                            <td><input type="radio" id="T1P4Plus" name="T1Pluspower" value="4"></td>
-                            <td><input type="number" id="T1P4Score" min="0"></td>
-                            <td><input type="number" id="T1P4Kill" min="0"></td>
-                            <td><p id="T1P4Adjust"></p></td>
+                            <td><input type="radio" id="P4Spd" name="T1Speedup" value="4"></td>
+                            <td><input type="radio" id="P4Plus" name="T1Pluspower" value="4"></td>
+                            <td><input type="number" id="P4Score" min="0"></td>
+                            <td><input type="number" id="P4Kill" min="0"></td>
+                            <td><p id="P4Adjust"></p></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" id="T1P5Spd" name="T1Speedup" value="5"></td>
-                            <td><input type="radio" id="T1P5Plus" name="T1Pluspower" value="5"></td>
-                            <td><input type="number" id="T1P5Score" min="0"></td>
-                            <td><input type="number" id="T1P5Kill" min="0"></td>
-                            <td><p id="T1P5Adjust"></p></td>
+                            <td><input type="radio" id="P5Spd" name="T1Speedup" value="5"></td>
+                            <td><input type="radio" id="P5Plus" name="T1Pluspower" value="5"></td>
+                            <td><input type="number" id="P5Score" min="0"></td>
+                            <td><input type="number" id="P5Kill" min="0"></td>
+                            <td><p id="P5Adjust"></p></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="midSpacing"></div>
+            <div id="midSpacing">
+                <img name="vsIcon" src="/images/t_matchroom_bg_vs.png">
+            </div>
             <div id="inputArea3">
                 <table id=inputTable2>
                     <colgroup>
@@ -111,7 +113,7 @@
                     </colgroup>
                     <thead>
                         <tr>
-                            <th><p>보정</p></th>
+                            <th><p>보정 결과</p></th>
                             <th><p>킬</p></th>
                             <th><p>개인득점</p></th>
                             <th><p>몰이꾼</p></th>
@@ -120,39 +122,39 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><p id="T2P1Adjust"></p></td>
-                            <td><input type="number" id="T2P1Kill" min="0"></td>
-                            <td><input type="number" id="T2P1Score" min="0"></td>
-                            <td><input type="radio" id="T2P1Plus" name="T2Pluspower" value="1"></td>
-                            <td><input type="radio" id="T2P1Spd" name="T2Speedup" value="1"></td>
+                            <td><p id="P6Adjust"></p></td>
+                            <td><input type="number" id="P6Kill" min="0"></td>
+                            <td><input type="number" id="P6Score" min="0"></td>
+                            <td><input type="radio" id="P6Plus" name="T2Pluspower" value="6"></td>
+                            <td><input type="radio" id="P6Spd" name="T2Speedup" value="6" checked="checked"></td>
                         </tr>
                         <tr>
-                            <td><p id="T2P2Adjust"></p></td>
-                            <td><input type="number" id="T2P2Kill" min="0"></td>
-                            <td><input type="number" id="T2P2Score" min="0"></td>
-                            <td><input type="radio" id="T2P2Plus" name="T2Pluspower" value="2"></td>
-                            <td><input type="radio" id="T2P2Spd" name="T2Speedup" value="2"></td>
+                            <td><p id="P7Adjust"></p></td>
+                            <td><input type="number" id="P7Kill" min="0"></td>
+                            <td><input type="number" id="P7Score" min="0"></td>
+                            <td><input type="radio" id="P7Plus" name="T2Pluspower" value="7" checked="checked"></td>
+                            <td><input type="radio" id="P7Spd" name="T2Speedup" value="7"></td>
                         </tr>
                         <tr>
-                            <td><p id="T2P3Adjust"></p></td>
-                            <td><input type="number" id="T2P3Kill" min="0"></td>
-                            <td><input type="number" id="T2P3Score" min="0"></td>
-                            <td><input type="radio" id="T2P3Plus" name="T2Pluspower" value="3"></td>
-                            <td><input type="radio" id="T2P3Spd" name="T2Speedup" value="3"></td>
+                            <td><p id="P8Adjust"></p></td>
+                            <td><input type="number" id="P8Kill" min="0"></td>
+                            <td><input type="number" id="P8Score" min="0"></td>
+                            <td><input type="radio" id="P8Plus" name="T2Pluspower" value="8"></td>
+                            <td><input type="radio" id="P8Spd" name="T2Speedup" value="8"></td>
                         </tr>
                         <tr>
-                            <td><p id="T2P4Adjust"></p></td>
-                            <td><input type="number" id="T2P4Kill" min="0"></td>
-                            <td><input type="number" id="T2P4Score" min="0"></td>
-                            <td><input type="radio" id="T2P4Plus" name="T2Pluspower" value="4"></td>
-                            <td><input type="radio" id="T2P4Spd" name="T2Speedup" value="4"></td>
+                            <td><p id="P9Adjust"></p></td>
+                            <td><input type="number" id="P9Kill" min="0"></td>
+                            <td><input type="number" id="P9Score" min="0"></td>
+                            <td><input type="radio" id="P9Plus" name="T2Pluspower" value="9"></td>
+                            <td><input type="radio" id="P9Spd" name="T2Speedup" value="9"></td>
                         </tr>
                         <tr>
-                            <td><p id="T2P5Adjust"></p></td>
-                            <td><input type="number" id="T2P5Kill" min="0"></td>
-                            <td><input type="number" id="T2P5Score" min="0"></td>
-                            <td><input type="radio" id="T2P5Plus" name="T2Pluspower" value="5"></td>
-                            <td><input type="radio" id="T2P5Spd" name="T2Speedup" value="5"></td>
+                            <td><p id="P10Adjust"></p></td>
+                            <td><input type="number" id="P10Kill" min="0"></td>
+                            <td><input type="number" id="P10Score" min="0"></td>
+                            <td><input type="radio" id="P10Plus" name="T2Pluspower" value="10"></td>
+                            <td><input type="radio" id="P10Spd" name="T2Speedup" value="10"></td>
                         </tr>
                     </tbody>
                 </table>

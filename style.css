@@ -137,11 +137,13 @@ input[type="radio"] {
 
 
 
-#inputArea2 { display: inline-flex; width: 310px; background-color: rgb(204, 149, 255);}
-#inputArea3 { display: inline-flex; width: 310px; background-color: rgb(252, 205, 119);}
+#inputArea2 { display: inline-flex; width: 290px; background-color: rgb(204, 149, 255);}
+#inputArea3 { display: inline-flex; width: 290px; background-color: rgb(252, 205, 119);}
 
 .inputTable2 {display: table; width: 90px;}
-.inputTable3 {display: table; width: 200px; margin: 0px 0px 0px 0px;}
+.inputTable4 {display: table; width: 70px;}
+.inputTable3 {display: table; width: 130px;}
+
 .row {display: table-row;}
 .cell {display:table-cell; height: 60px;}
 .thead > .cell {height: 60px;}
@@ -152,7 +154,7 @@ input[type="radio"] {
 .cellStyle3 { width: 50px;}
 
 .cellStyle4 {width: 70px;}
-.cellStyle5 {width: auto;}
+.cellStyle5 {width: 60px;}
 
 .cellStyle6 { width:290px;}
 .cellStyle7 { width:120px;}

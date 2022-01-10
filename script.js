@@ -369,4 +369,6 @@ function resetFnc() {
 
     document.getElementById('T1Final').style.backgroundColor = ''
     document.getElementById('T2Final').style.backgroundColor = ''
+    
+    goldcheck = [0,0];
 }

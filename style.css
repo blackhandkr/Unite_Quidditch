@@ -1,0 +1,165 @@
+/* 전역 설정 */
+
+div {
+    width: 100%;
+  border: 0px solid black;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.wrap {width: 700px; border: 1px solid black;}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0px solid black;
+}
+
+table th, table td {
+  border: 0px solid black;
+}
+
+table tr { height: 60px;}
+
+.bold {font-weight: bold;}
+.large {font-size:large;}
+.adjusttext {font-size: small;color:red;}
+
+
+.Left {float: left;}
+.Right {float: right;}
+
+input[type=number] {width: 80px; height: 20px;text-align: center;}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[id="T1Gold"] + label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #bcbcbc;
+	cursor: pointer;
+}
+input[id="T1Gold"]:checked + label {
+    background: url(./images/t_Square_Eldegoss.png) no-repeat 0 0px / contain; filter: grayscale(100%);
+}
+input[id="T1Gold"] {
+	display: none;
+}
+input[id="T2Gold"] + label {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #bcbcbc;
+	cursor: pointer;
+}
+input[id="T2Gold"]:checked + label {
+	background: url(./images/t_Square_Eldegoss.png) no-repeat 0 0px / contain; filter: grayscale(100%);
+}
+input[id="T2Gold"] {
+	display: none;
+}
+
+input[type="radio"] {
+    
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    place-content: center;
+    cursor: pointer;
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 95%;
+  }
+
+/* 상단 설정 */
+#versionInfo {display: inline-flex;}
+.logo {width: 150px;}
+.versionText {width: calc(100% - 2*150px);}
+#versionInfo img {height: 80px;}
+
+.calcHeader2 {margin-top: 16px;}
+
+#inputArea {margin-top: 20px;}
+
+
+/* 중단 설정 */
+
+/* .inputTable1 td {border-bottom: 1px solid black;} */
+
+.cellStyle1 { 
+}
+.cellStyle2 { width:120px; background-color: #cccccc;
+}
+.ScoreLeft { float: right; margin-right: 20px;}
+.ScoreRight { float: left; margin-left: 20px;}
+.LabelLeft { float: right; margin-right: 50px;}
+.LabelRight { float: left; margin-left: 50px;}
+
+
+#calcBody { width: 100%; display: inline-flex; margin-top: 16px;}
+#calcBody input[type=number] {width: 40px;}
+
+
+
+#inputArea2 { display: inline-flex; width: 310px; background-color: rgb(204, 149, 255);}
+#inputArea3 { display: inline-flex; width: 310px; background-color: rgb(252, 205, 119);}
+
+.inputTable2 {display: table; width: 90px;}
+.inputTable3 {display: table; width: 200px; margin: 0px 0px 0px 0px;}
+.row {display: table-row;}
+.cell {display:table-cell; height: 60px;}
+.thead > .cell {height: 60px;}
+
+.midSpacing {width: 120px;}
+.midSpacing img {margin-top: 165px;}
+
+.cellStyle3 { width: 50px;}
+
+.cellStyle4 {width: 70px;}
+.cellStyle5 {width: auto;}
+
+.cellStyle6 { width:290px;}
+.cellStyle7 { width:120px;}
+
+.smallIcon {height: 40px; margin: -10px;}
+
+/* 하단 설정 */
+
+#calcFooter {margin-top: 20px;}
+#resultArea img {height: 36px;}

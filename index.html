@@ -1,197 +1,232 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>포켓몬 유나이트 퀴디치 점수 계산기 v1.2.1</title>
-        <link rel="stylesheet" type="text/css" href="css/layout.css">
-        <script type="text/javascript" src="js/calculator.js"></script>
-    </head>
-
-    <body>
-    <form>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포켓몬 유나이트 퀴디치 점수 계산기 v1.2.1</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="wrap">
+      <form>
         <!-- 상단 영역 -->
-        <div id="calcHeader">
-            <div id="versionInfo">
-                <p>포켓몬 유나이트 퀴디치 v1.2 by 카이사르</p>
-                <p>계산기 v1.2.1 - 20210108</p>
+        <div class="calcHeader">
+          <div id="versionInfo">
+            <div class="logo Left">
+              <img src="images/t_login_LOGO_en.png" />
             </div>
-            <div id="inputArea">
-                <table id="inputTable1">
-                    <colgroup>
-                        <col class="cellStyle1">
-                        <col class="cellStyle2">
-                        <col class="cellStyle1">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td><input type="number" id="T1baseScore" min="0"></td>
-                            <td><p>점수 합계</p></td>
-                            <td><input type="number" id="T2baseScore" min="0"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" id="T1Gold"></td>
-                            <td><p>백솜모카 Kill</p></td>
-                            <td><input type="checkbox" id="T2Gold"></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="versionText">
+              <span>
+                <p class="bold">포켓몬 유나이트 퀴디치 v1.2 by 카이사르</p>
+                계산기 v1.2.1 - 2021.01.10<br>제작 : 블랙핸드
+              </span>
             </div>
+            <div class="logo Right">
+                <img src="images/devilcaesar.png" />
+              </div>
+          </div>
+        
+          
+        </div>
+        <div class="calcHeader2">
             <div id="resetArea">
-                <input type="reset" id="resetBtn" onclick="resetFnc()">
-            </div>
+                <input type="reset" id="resetBtn" onclick="resetFnc()" />
+              </div>
+              <div id="inputArea">
+                <table class="inputTable1">
+                  <colgroup>
+                    <col class="cellStyle1" />
+                    <col class="cellStyle2" />
+                    <col class="cellStyle1" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <td><input type="number" class="ScoreLeft" id="T1baseScore" min="0" max="2000" /></td>
+                      <td><p class="bold">점수 합계</p></td>
+                      <td><input type="number" class="ScoreRight" id="T2baseScore" min="0" max="2000" /></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="checkbox" id="T1Gold" onclick="PreventDoubleCheck1(event)"/>
+                        <label for="T1Gold"  class="LabelLeft"></label>
+                      </td>
+                      <td><p class="bold">백솜모카 Kill</p></td>
+                      <td>
+                        <input type="checkbox" id="T2Gold" onclick="PreventDoubleCheck2(event)"/>
+                        <label for="T2Gold" class="LabelRight"></label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
         </div>
         <!-- 중단 영역 -->
         <div id="calcBody">
-            <div id="inputArea2">
-                <table id=inputTable2>
-                    <colgroup>
-                        <col class="cellStyle3">
-                        <col class="cellStyle3">
-                        <col class="cellStyle4">
-                        <col class="cellStyle4">
-                        <col class="cellStyle5">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th><p>수색꾼</p></th>
-                            <th><p>몰이꾼</p></th>
-                            <th><p>개인득점</p></th>
-                            <th><p>킬</p></th>
-                            <th><p>보정 결과</p></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="radio" id="P1Spd" name="T1Speedup" value="1" checked="checked"></td>
-                            <td><input type="radio" id="P1Plus" name="T1Pluspower" value="1"></td>
-                            <td><input type="number" id="P1Score" min="0"></td>
-                            <td><input type="number" id="P1Kill" min="0"></td>
-                            <td><p id="P1Adjust"></p></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" id="P2Spd" name="T1Speedup" value="2"></td>
-                            <td><input type="radio" id="P2Plus" name="T1Pluspower" value="2" checked="checked"></td>
-                            <td><input type="number" id="P2Score" min="0"></td>
-                            <td><input type="number" id="P2Kill" min="0"></td>
-                            <td><p id="P2Adjust"></p></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" id="P3Spd" name="T1Speedup" value="3"></td>
-                            <td><input type="radio" id="P3Plus" name="T1Pluspower" value="3"></td>
-                            <td><input type="number" id="P3Score" min="0"></td>
-                            <td><input type="number" id="P3Kill" min="0"></td>
-                            <td><p id="P3Adjust"></p></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" id="P4Spd" name="T1Speedup" value="4"></td>
-                            <td><input type="radio" id="P4Plus" name="T1Pluspower" value="4"></td>
-                            <td><input type="number" id="P4Score" min="0"></td>
-                            <td><input type="number" id="P4Kill" min="0"></td>
-                            <td><p id="P4Adjust"></p></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" id="P5Spd" name="T1Speedup" value="5"></td>
-                            <td><input type="radio" id="P5Plus" name="T1Pluspower" value="5"></td>
-                            <td><input type="number" id="P5Score" min="0"></td>
-                            <td><input type="number" id="P5Kill" min="0"></td>
-                            <td><p id="P5Adjust"></p></td>
-                        </tr>
-                    </tbody>
-                </table>
+          <div id="inputArea2">
+            <div class="inputTable2">
+              <div class="row thead">
+                  <div class="cell cellStyle3"><p><img class="smallIcon" src="images/t_prop_XSpeed.png" /></p></div>
+                  <div class="cell cellStyle3"><p><img class="smallIcon" src="images/t_prop_XAttack.png" /></p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><p><input type="radio" id="P1Spd" name="T1Speedup" value="1" onclick="DisablePower1(event)" checked/></p></div>
+                  <div class="cell cellStyle3"><p><input type="radio" id="P1Plus" name="T1Pluspower" value="1" onclick="DisableSpeed1(event)" disabled /></p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><p><input type="radio" id="P2Spd" name="T1Speedup" value="2" onclick="DisablePower2(event)" disabled/></p></div>
+                  <div class="cell cellStyle3"><p><input type="radio" id="P2Plus" name="T1Pluspower" value="2" onclick="DisableSpeed2(event)" checked/></p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><p><input type="radio" id="P3Spd" name="T1Speedup" value="3" onclick="DisablePower3(event)"/></p></div>
+                  <div class="cell cellStyle3"><p><input type="radio" id="P3Plus" name="T1Pluspower" value="3" onclick="DisableSpeed3(event)"/></p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><p><input type="radio" id="P4Spd" name="T1Speedup" value="4" onclick="DisablePower4(event)"/></p></div>
+                  <div class="cell cellStyle3"><p><input type="radio" id="P4Plus" name="T1Pluspower" value="4" onclick="DisableSpeed4(event)"/></p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><p><input type="radio" id="P5Spd" name="T1Speedup" value="5" onclick="DisablePower5(event)" /></p></div>
+                  <div class="cell cellStyle3"><p><input type="radio" id="P5Plus" name="T1Pluspower" value="5" onclick="DisableSpeed5(event)"/></p></div>
+                </div>
             </div>
-            <div id="midSpacing">
-                <img name="vsIcon" src="images/t_matchroom_bg_vs.png">
+            <div class="inputTable3">
+                <div class="row thead">
+                  <div class="cell cellStyle4"><p class="bold">개인득점</p></div>
+                  <div class="cell cellStyle4"><p class="bold">킬</p></div>
+                  <div class="cell cellStyle5"><p>&nbsp;</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle4"><input type="number" id="P1Score" min="0" max="999" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P1Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P1Adjust">&nbsp;</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle4"><input type="number" id="P2Score" min="0" max="999" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P2Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P2Adjust">&nbsp;</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle4"><input type="number" id="P3Score" min="0" max="999" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P3Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P3Adjust">&nbsp;</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle4"><input type="number" id="P4Score" min="0" max="999" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P4Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P4Adjust">&nbsp;</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle4"><input type="number" id="P5Score" min="0" max="999" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P5Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P5Adjust">&nbsp;</p></div>
+                </div>
             </div>
-            <div id="inputArea3">
-                <table id=inputTable2>
-                    <colgroup>
-                        <col class="cellStyle5">
-                        <col class="cellStyle4">
-                        <col class="cellStyle4">
-                        <col class="cellStyle3">
-                        <col class="cellStyle3">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th><p>보정 결과</p></th>
-                            <th><p>킬</p></th>
-                            <th><p>개인득점</p></th>
-                            <th><p>몰이꾼</p></th>
-                            <th><p>수색꾼</p></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><p id="P6Adjust"></p></td>
-                            <td><input type="number" id="P6Kill" min="0"></td>
-                            <td><input type="number" id="P6Score" min="0"></td>
-                            <td><input type="radio" id="P6Plus" name="T2Pluspower" value="6"></td>
-                            <td><input type="radio" id="P6Spd" name="T2Speedup" value="6" checked="checked"></td>
-                        </tr>
-                        <tr>
-                            <td><p id="P7Adjust"></p></td>
-                            <td><input type="number" id="P7Kill" min="0"></td>
-                            <td><input type="number" id="P7Score" min="0"></td>
-                            <td><input type="radio" id="P7Plus" name="T2Pluspower" value="7" checked="checked"></td>
-                            <td><input type="radio" id="P7Spd" name="T2Speedup" value="7"></td>
-                        </tr>
-                        <tr>
-                            <td><p id="P8Adjust"></p></td>
-                            <td><input type="number" id="P8Kill" min="0"></td>
-                            <td><input type="number" id="P8Score" min="0"></td>
-                            <td><input type="radio" id="P8Plus" name="T2Pluspower" value="8"></td>
-                            <td><input type="radio" id="P8Spd" name="T2Speedup" value="8"></td>
-                        </tr>
-                        <tr>
-                            <td><p id="P9Adjust"></p></td>
-                            <td><input type="number" id="P9Kill" min="0"></td>
-                            <td><input type="number" id="P9Score" min="0"></td>
-                            <td><input type="radio" id="P9Plus" name="T2Pluspower" value="9"></td>
-                            <td><input type="radio" id="P9Spd" name="T2Speedup" value="9"></td>
-                        </tr>
-                        <tr>
-                            <td><p id="P10Adjust"></p></td>
-                            <td><input type="number" id="P10Kill" min="0"></td>
-                            <td><input type="number" id="P10Score" min="0"></td>
-                            <td><input type="radio" id="P10Plus" name="T2Pluspower" value="10"></td>
-                            <td><input type="radio" id="P10Spd" name="T2Speedup" value="10"></td>
-                        </tr>
-                    </tbody>
-                </table>
+          </div>
+          <div class="midSpacing">
+            <img name="vsIcon" src="images/t_matchroom_bg_vs.png" />
+          </div>
+          <div id="inputArea3">
+            <div class="inputTable3">
+                <div class="row thead">
+                  <div class="cell cellStyle5"><p>&nbsp;</p></div>
+                  <div class="cell cellStyle4"><p class="bold">킬</p></div>
+                  <div class="cell cellStyle4"><p class="bold">개인득점</p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P6Adjust">&nbsp;</p></div>
+                  <div class="cell cellStyle4"><input type="number" id="P6Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P6Score" min="0" max="999" /></div>
+                  </td>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P7Adjust">&nbsp;</p></div>
+                  <div class="cell cellStyle4"><input type="number" id="P7Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P7Score" min="0" max="999" /></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P8Adjust">&nbsp;</p></div>
+                  <div class="cell cellStyle4"><input type="number" id="P8Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P8Score" min="0" max="999" /></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P9Adjust">&nbsp;</p></div>
+                  <div class="cell cellStyle4"><input type="number" id="P9Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P9Score" min="0" max="999" /></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle5"><p class="adjusttext" id="P10Adjust">&nbsp;</p></div>
+                  <div class="cell cellStyle4"><input type="number" id="P10Kill" min="0" max="99" /></div>
+                  <div class="cell cellStyle4"><input type="number" id="P10Score" min="0" max="999" /></div>
+                </div>
             </div>
+            <div class="inputTable2">
+                <div class="row thead">
+                  <div class="cell cellStyle3"><p><img class="smallIcon" src="images/t_prop_XAttack.png" /></p></div>
+                  <div class="cell cellStyle3"><p><img class="smallIcon" src="images/t_prop_XSpeed.png" /></p></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><input type="radio" id="P6Plus" name="T2Pluspower" value="6" onclick="DisableSpeed6(event)" disabled/></div>
+                  <div class="cell cellStyle3"><input type="radio" id="P6Spd" name="T2Speedup" value="6" onclick="DisablePower6(event)" checked/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><input type="radio" id="P7Plus" name="T2Pluspower" value="7" onclick="DisableSpeed7(event)" checked/></div>
+                  <div class="cell cellStyle3"><input type="radio" id="P7Spd" name="T2Speedup" value="7" onclick="DisablePower7(event)" disabled/></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><input type="radio" id="P8Plus" name="T2Pluspower" value="8" onclick="DisableSpeed8(event)"/></div>
+                  <div class="cell cellStyle3"><input type="radio" id="P8Spd" name="T2Speedup" value="8" onclick="DisablePower8(event)" /></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><input type="radio" id="P9Plus" name="T2Pluspower" value="9" onclick="DisableSpeed9(event)"/></div>
+                  <div class="cell cellStyle3"><input type="radio" id="P9Spd" name="T2Speedup" value="9" onclick="DisablePower9(event)" /></div>
+                </div>
+                <div class="row">
+                  <div class="cell cellStyle3"><input type="radio" id="P10Plus" name="T2Pluspower" value="10" onclick="DisableSpeed10(event)"/></div>
+                  <div class="cell cellStyle3"><input type="radio" id="P10Spd" name="T2Speedup" value="10" onclick="DisablePower10(event)"/></div>
+                </div>
+            </div>
+          </div>
         </div>
         <!-- 하단 영역 -->
         <div id="calcFooter">
-            <div id="submitArea">
-                <input type="button" id="submitBtn" onclick="submitFnc()" value="계산하기">
-            </div>
-            <div id="resultArea">
-                <table id="resultTable">
-                    <colgroup>
-                        <col class="cellStyle6">
-                        <col class="cellStyle7">
-                        <col class="cellStyle6">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th id="T1Win"></th>
-                            <th></th>
-                            <th id="T2win"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="T1Final"><p id="T1FinalScore"></p></td>
-                            <td><p>최종 스코어</p></td>
-                            <td id="T2Final"><p id="T2FinalScore"></p></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="authorInfo">
-                <p>엑셀 제작 : 블랙핸드</p>
-            </div>
+          <div id="submitArea">
+            <input
+              type="button"
+              id="submitBtn"
+              onclick="Calculate()"
+              value="계산하기"
+            />
+          </div>
+          <div id="resultArea">
+            <table id="resultTable">
+              <colgroup>
+                <col class="cellStyle6" />
+                <col class="cellStyle7" />
+                <col class="cellStyle6" />
+              </colgroup>
+              <tbody></tbody>
+                <tr>
+                  <td id="T1Win"><img id="T1img" src=""></td>
+                  <td rowspan="2"><p class="bold large">최종 스코어</p></td>
+                  <td id="T2win"><img id="T2img" src=""></td>
+                </tr>
+              
+              
+                <tr>
+                  <td id="T1Final"><p id="T1FinalScore" class="bold large">&nbsp;</p></td>
+                  
+                  <td id="T2Final"><p id="T2FinalScore" class="bold large">&nbsp;</p></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-    </form>
-    </body>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
